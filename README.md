@@ -4,7 +4,7 @@ Scoring how funny short jokes are, Princeton COS598C final project
 
 ## Datasets used:
 
-_Humicroedit and FunLines datasets_
+😂 _Humicroedit and FunLines datasets_
 
 Nabil Hossain, John Krumm and Michael Gamon. "President Vows to Cut ~~Taxes~~ Hair": Dataset and Analysis of Creative Text Editing for Humorous Headlines. 2019. In NAACL. 
 
@@ -15,7 +15,7 @@ __Description__: Both of the datasets have an original news title and “microed
 __Downloaded from__: https://www.cs.rochester.edu/u/nhossain/humicroedit.html
 
 
-_HashtagWars dataset_  
+😂 _HashtagWars dataset_  
 
 "Semeval-2017 task 6:# hashtagwars: Learning a sense of humor." Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017). 2017. 
 
@@ -29,19 +29,19 @@ __Data structure__: single directory w/ files corresponding to a single hashtag.
 - 2: winning tweet (one tweet per file)
 
 
-_CrowdTruth Short-Text-Corpus-For-Humor-Detection_
+😂 _CrowdTruth Short-Text-Corpus-For-Humor-Detection_
 
 __Description__: Scraped from twitter, contains posts from “funny” accounts, as well as Reuters headlines, English proverbs and Wiki sentences. This results in approximately 22K funny items, and 21K of neutral posts.
 
 __Downloaded from__: https://github.com/CrowdTruth/Short-Text-Corpus-For-Humor-Detection
 
 
-_Kaggle, Short Jokes_ 
+😂 _Kaggle, Short Jokes_ 
 
 __Downloaded from__: https://www.kaggle.com/abhinavmoudgil95/short-jokes
 
 
-_taivop/joke-dataset_
+😂 _taivop/joke-dataset_
 
 __Description__: 208K jokes scraped from three websites: 
 
