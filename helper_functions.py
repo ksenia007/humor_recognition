@@ -34,7 +34,7 @@ def run_pretrained_for_sentence(sent, len_sent = 25):
 
 
 def run_for_sentence(net, sentence, maxlen):
-    sentence_change = replace_word(sentence, replacement)
+    
     sentence = drop_replacement_symbols(sentence)
 
     #Preprocessing the text to be suitable for BERT
@@ -53,11 +53,3 @@ def run_for_sentence(net, sentence, maxlen):
     attn_mask = (tokens_ids_tensor != 0).long()
 
     return tokens_ids_tensor, attn_mask
-
-# for i in range(10,20):
-#     (ids, attn) = run_for_sentence(net, valid_data.loc[i].original, valid_data.loc[i].edit, maxlen=50)
-#     with torch.no_grad():
-#         pred = net(ids.unsqueeze(0), attn.unsqueeze(0))
-#     print('Sentence: ', valid_data.loc[i].original)
-#     print('Alternative: ', replace_word(valid_data.loc[i].original, valid_data.loc[i].edit))
-#     print('Prediction is ', pred[0][0]*3, ' True value: ', valid_data.loc[i].meanGrade)
