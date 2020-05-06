@@ -53,4 +53,22 @@ __Description__: 208K jokes scraped from three websites:
 
 __Downloaded from__: https://github.com/taivop/joke-dataset
 
+Edited dataset, with splits to compare to previous works:
+_Puns, reddit full and short jokes_
 
+__Downloaded from__: https://github.com/orionw/RedditHumorDetection
+
+MadLibs humor 
+https://www.microsoft.com/en-us/download/details.aspx?id=55593
+
+
+For balancing:
+
+A Million News Headlines
+https://www.kaggle.com/therohk/million-headlines
+
+Twitter random tweets
+https://archive.org/search.php?query=collection%3Atwitterstream&sort=-publicdate
+
+One week of global news
+https://www.kaggle.com/therohk/global-news-week
