@@ -70,3 +70,5 @@ https://www.kaggle.com/therohk/million-headlines
 Twitter random tweets
 https://archive.org/search.php?query=collection%3Atwitterstream&sort=-publicdate
 
+One week of global news
+https://www.kaggle.com/therohk/global-news-week
