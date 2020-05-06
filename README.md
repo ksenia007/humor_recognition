@@ -58,6 +58,9 @@ _Puns, reddit full and short jokes_
 
 __Downloaded from__: https://github.com/orionw/RedditHumorDetection
 
+MadLibs humor 
+https://www.microsoft.com/en-us/download/details.aspx?id=55593
+
 
 For balancing:
 
