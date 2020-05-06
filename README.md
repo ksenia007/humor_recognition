@@ -63,3 +63,7 @@ For balancing:
 
 A Million News Headlines
 https://www.kaggle.com/therohk/million-headlines
+
+Twitter random tweets
+https://archive.org/search.php?query=collection%3Atwitterstream&sort=-publicdate
+
