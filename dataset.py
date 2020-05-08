@@ -10,6 +10,44 @@ import torch.nn.functional as F
 from helper_functions import *
 import random
 
+
+
+class Basic(Dataset):
+
+    def __init__(self, filename, maxlen):
+        self.df = pd.read_csv(filename)
+        self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased') #Initialize the BERT tokenizer
+        self.maxlen = maxlen
+
+    def __len__(self):
+        return len(self.df)
+
+    def __getitem__(self, index):
+
+        #Selecting the sentence and label at the specified index in the data frame
+        sentence = self.df.loc[index, 'text']
+        label = self.df.loc[index, 'label']
+        
+        #Preprocessing the text to be suitable for BERT
+        #Tokenize the sentence
+        tokens_orig = self.tokenizer.tokenize(sentence) 
+        
+        tokens = ['[CLS]'] + tokens_orig + ['[SEP]']
+        
+        if len(tokens) < self.maxlen:
+            tokens = tokens + ['[PAD]' for _ in range(self.maxlen - len(tokens))] #Padding sentences
+        else:
+            tokens = tokens[:self.maxlen-1] + ['[SEP]'] #Prunning the list to be of specified max length
+
+        tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens) #Obtaining the indices of the tokens in the BERT Vocabulary
+        tokens_ids_tensor = torch.tensor(tokens_ids) #Converting the list to a pytorch tensor
+
+        #Obtaining the attention mask i.e a tensor containing 1s for no padded tokens and 0s for padded ones
+        attn_mask = (tokens_ids_tensor != 0).long()
+
+        return tokens_ids_tensor, attn_mask, label
+
+
 class HumicroeditBasic(Dataset):
 
     def __init__(self, filename, maxlen):

@@ -5,10 +5,9 @@ import torch.optim as optim
 import pickle
 
 
-train_filename = 'data/humicroedit_unpaired_train.csv'
-valid_filename = 'data/humicroedit_unpaired_valid.csv'
-model_name = 'BERT_model_humicroedit_unpaired.pt'
-
+train_filename = 'data/basic_full_dataset_v1_train.csv'
+valid_filename = 'data/basic_full_dataset_v1_validation.csv'
+model_name = 'BERT_model_basic_v1.pt'
 
 
 batch_size = 64
@@ -20,8 +19,8 @@ step_size = 20
 
 
 #Creating instances of training and validation set
-train_set = HumicroeditBasic(filename = train_filename, maxlen = maxlen)
-val_set = HumicroeditBasic(filename = valid_filename, maxlen = maxlen)
+train_set = Basic(filename = train_filename, maxlen = maxlen)
+val_set = Basic(filename = valid_filename, maxlen = maxlen)
 
 #Creating intsances of training and validation dataloaders
 train_loader = DataLoader(train_set, batch_size = batch_size)
@@ -30,7 +29,7 @@ val_loader = DataLoader(val_set, batch_size = batch_size)
 if use_cuda:
     net = HumorRegressorBase(freeze_bert = True).cuda()
 
-criterion = nn.MSELoss(reduction='none')
+criterion = nn.BCELoss()
 
 opti = optim.Adam(net.parameters(), lr = lr)
 

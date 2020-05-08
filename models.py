@@ -30,6 +30,10 @@ class HumorRegressorBase(nn.Module):
         self.fc1 = nn.Linear(12096, 512)
         self.fc2 = nn.Linear(512, 1)
 
+        self.dropout_CNN = nn.Dropout(p=0.1)
+        self.dropout_FC = nn.Dropout(p=0.3)
+
+
     def forward(self, seq, attn_masks):
 
         #Feeding the input to BERT model to obtain contextualized representations
@@ -38,13 +42,13 @@ class HumorRegressorBase(nn.Module):
         #Obtaining the representation of [CLS] head
         #print(cont_reps.shape)
         out = cont_reps.unsqueeze(1)
-        out = self.pool(F.relu(self.conv1(out)))
+        out = self.pool(F.relu(self.dropout_CNN(self.conv1(out))))
         #print(out.shape)
-        out = self.pool(F.relu(self.conv2(out)))
+        out = self.pool(F.relu(self.dropout_CNN(self.conv2(out))))
         out = out.view(out.size(0), 12096)
         #Feeding cls_rep to the regressor layer
         #out = F.relu(self.fc1(out))
-        out = F.relu(self.fc1(out))
+        out = F.relu(self.dropout_FC(self.fc1(out)))
         out = self.fc2(out)
         
-        return out
+        return F.sigmoid(out)
