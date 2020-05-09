@@ -18,7 +18,7 @@ def predict_dataset(data_loader, net, use_cuda=True):
 	preds = np.zeros(1)
 
 	with torch.no_grad():
-		for it, (seq, attn_masks, labels) in enumerate(data_loader):
+		for it, (seq, attn_masks, labels, _) in enumerate(data_loader):
 			if use_cuda:
 				seq, attn_masks = seq.cuda(), attn_masks.cuda()
 			pred_temp = net(seq, attn_masks)
@@ -72,16 +72,22 @@ def evaluate_model(weights_location, model_name, dataset_name, data_set_params, 
 
 
 
-dataset_file = 'data/humicroedit_unpaired_valid.csv'
-maxlen = 25
+dataset_file = 'data/test/puns_test.csv'
+maxlen = 30
 batch_size = 32
-weights_location = 'BERT_model_humicroedit_unpaired.pt'
-save_loc = 'output/evaluation_for_' + weights_location
-model_name = HumorRegressorBase
-dataset_name = HumicroeditBasic
+weights_location = 'BERT_model_basic_weighted_CLS_v2.pt'
+save_loc = 'output/evaluation_for_'+'puns_test'+'_'+ weights_location
+model_name = HumorCLS
+dataset_name = BasicWeighted
 
 
 data_set_params = {'filename': dataset_file, 'maxlen': maxlen}
 data_loader_params = {'batch_size': batch_size}
 
 evaluate_model(weights_location, model_name, dataset_name, data_set_params, data_loader_params, save_location=save_loc, use_cuda=True)
+
+
+
+
+
+

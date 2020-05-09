@@ -10,6 +10,38 @@ import torch.nn.functional as F
 from helper_functions import *
 import random
 
+
+
+class HumorCLS(nn.Module):
+
+    def __init__(self, freeze_bert = True):
+        super(HumorCLS, self).__init__()
+        #Instantiating BERT model object 
+        self.bert_layer = BertModel.from_pretrained('bert-base-uncased')
+        
+        #Freeze bert layers
+        if freeze_bert:
+            for p in self.bert_layer.parameters():
+                p.requires_grad = False
+        
+        self.fc1 = nn.Linear(768, 50)
+        self.fc2 = nn.Linear(50, 1)
+
+        self.dropout_FC = nn.Dropout(p=0.3)
+
+
+    def forward(self, seq, attn_masks):
+
+        #Feeding the input to BERT model to obtain contextualized representations
+        cont_reps, _ = self.bert_layer(seq, attention_mask = attn_masks)
+
+        #Obtaining the representation of [CLS] head
+        out = cont_reps[:,0]
+        out = F.relu(self.dropout_FC(self.fc1(out)))
+        out = self.fc2(out)
+        
+        return F.sigmoid(out)
+
 class HumorRegressorBase(nn.Module):
 
     def __init__(self, freeze_bert = True):
