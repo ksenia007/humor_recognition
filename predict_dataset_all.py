@@ -11,8 +11,11 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import roc_curve, auc
 
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
+
+# import warnings filter
+from warnings import simplefilter
+# ignore all future warnings
+simplefilter(action='ignore', category=FutureWarning)
 
 
 def predict_dataset(data_loader, net, use_cuda=True):
@@ -27,7 +30,7 @@ def predict_dataset(data_loader, net, use_cuda=True):
 			pred_temp = net(seq, attn_masks)
 			preds = np.append(preds, pred_temp.detach().cpu().numpy())
 			truth = np.append(truth, labels)
-			if (it + 1) % 1000 == 0: 
+			if (it + 1) % 500 == 0: 
 				print('Iteration ', it)
 	return truth[1:], preds[1:]
 
@@ -75,17 +78,22 @@ def evaluate_model(weights_location, model_name, dataset_name, data_set_params, 
 
 
 dataset_folder = 'data/test/'
-dataset_files = ['puns_test.csv', 'shortjokes_test.csv', 'humorous_oneliners_test.csv', 'humi_funlines_test_replacements_unpaired.csv'] 
+dataset_files = ['puns_test.csv', 'short_news_test.csv', 'oneliners_neutral_test.csv', 'humi_funlines_test_replacements_unpaired.csv'] 
 maxlen = 30
 batch_size = 32
 model_name = HumorCLS
 dataset_name = BasicWeighted
-metadata_file_loc = 'grid/data_options_unfreeze/metadata.pt'
+#metadata_file_loc = 'grid/data_options/combined_datasets/metadata.pickle'
+#metadata_file_loc = 'grid/data_options/just_datasets/metadata.pickle'
+metadata_file_loc = 'grid/data_options_unfreeze/just_datasets/metadata_new.pickle'
+#metadata_file_loc = 'grid/data_options_unfreeze/combined_datasets/metadata.pickle'
 metadata_file = pickle.load(open(metadata_file_loc, 'rb'))
 models = list(metadata_file.keys())
 
+#save_loc = 'grid/data_options/combined_datasets/evaluation_results.pickle'
+save_loc = 'grid/data_options_unfreeze/just_datasets/evaluation_results_new.pickle'
+#save_loc = 'grid/data_options_unfreeze/combined_datasets/evaluation_results_new.pickle'
 
-save_loc = 'output/evaluation_for_'+'unfreeze_res1'+'.pt'
 res = {}
 count = 0
 for model in models:
@@ -109,19 +117,6 @@ pickle.dump(res, open(save_loc, 'wb'))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-evaluate_model(weights_location, model_name, dataset_name, data_set_params, data_loader_params, save_location=save_loc, use_cuda=True)
 
 
 

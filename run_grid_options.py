@@ -22,16 +22,17 @@ epochs = 15
 freeze_bert = True
 
 batch_size = 128
-maxlen = 25
+maxlen = 30
 lr = 0.001
 step_size = 5
 folder_data = 'data/training_datasets/'
 model_save_loc = 'grid/data_options/combined_datasets/'
-datafile_opt = ['basic_v1', 'basic_v2', 'weighted_v1', 'weighted_v2', 'weighted_v3']
-weight_avail = [0, 0, 1, 1, 1]
-# model_save_loc = 'grid/data_options/just_datasets/'
-# datafile_opt = ['humicroedit', 'puns', 'short']
-# weight_avail = [0, 0, 0]
+#datafile_opt = ['basic_v1', 'basic_v2', 'weighted_v1', 'weighted_v2', 'weighted_v3']
+datafile_opt = ['weighted_v1', 'weighted_v2', 'weighted_v3']
+#weight_avail = [0, 0, 1, 1, 1]
+#model_save_loc = 'grid/data_options/just_datasets/'
+#datafile_opt = ['humicroedit', 'puns', 'short', 'oneliners']
+weight_avail = [1, 1, 1]
 weights = [1, 0.7, 0.5, 0.3]
 
 res = {}
@@ -61,7 +62,7 @@ for idata, dataf in enumerate(datafile_opt):
 
 		net, train_error_all, val_error_all = train_function(net, criterion, opti, scheduler, 
 		                                            train_loader, val_loader, epochs=epochs, 
-		                                            use_cuda=use_cuda, save_model=True, model_name=model_name_var)
+		                                            use_cuda=use_cuda, save_model=False, model_name=model_name_var)
 
 		
 		res[model_name_var] = {
@@ -78,7 +79,7 @@ for idata, dataf in enumerate(datafile_opt):
 		}
 		}
 
-		pickle.dump(res, open(model_save_loc+'metadata.pickle', 'wb'))
+		pickle.dump(res, open(model_save_loc+'metadata_new_weighted.pickle', 'wb'))
 
 
 
