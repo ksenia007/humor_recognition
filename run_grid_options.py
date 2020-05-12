@@ -28,7 +28,7 @@ step_size = 5
 folder_data = 'data/training_datasets/'
 model_save_loc = 'grid/data_options/combined_datasets/'
 #datafile_opt = ['basic_v1', 'basic_v2', 'weighted_v1', 'weighted_v2', 'weighted_v3']
-datafile_opt = ['weighted_v1', 'weighted_v2', 'weighted_v3']
+datafile_opt = ['weighted_v3']
 #weight_avail = [0, 0, 1, 1, 1]
 #model_save_loc = 'grid/data_options/just_datasets/'
 #datafile_opt = ['humicroedit', 'puns', 'short', 'oneliners']
@@ -79,7 +79,7 @@ for idata, dataf in enumerate(datafile_opt):
 		}
 		}
 
-		pickle.dump(res, open(model_save_loc+'metadata_new_weighted.pickle', 'wb'))
+		pickle.dump(res, open(model_save_loc+'metadata_new_weighted_v3.pickle', 'wb'))
 
 
 

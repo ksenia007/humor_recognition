@@ -18,7 +18,7 @@ model_name = 'BERT_model_CLS_'
 
 
 use_cuda = True
-epochs = 4
+epochs = 3
 freeze_bert = False
 
 batch_size = 32
@@ -27,8 +27,8 @@ lr = 5e-5
 step_size = 100
 folder_data = 'data/training_datasets/'
 model_save_loc = 'grid/data_options_unfreeze/combined_datasets/'
-datafile_opt = ['weighted_v1', 'weighted_v2', 'weighted_v3']
-weight_avail = [1, 1, 1]
+datafile_opt = ['weighted_v3']
+weight_avail = [0]
 #model_save_loc = 'grid/data_options_unfreeze/just_datasets/'
 #datafile_opt = ['short']
 #weight_avail = [0]
@@ -78,7 +78,7 @@ for idata, dataf in enumerate(datafile_opt):
 		}
 		}
 
-		pickle.dump(res, open(model_save_loc+'metadata_weighted.pickle', 'wb'))
+		pickle.dump(res, open(model_save_loc+'metadata_weighted_v3.pickle', 'wb'))
 
 
 
