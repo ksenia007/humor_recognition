@@ -9,6 +9,8 @@ This is a repository for Princeton COS598C final project, Spring 2020, taught by
 
 ## Datasets:
 
+❗❗❗ All datasets except the first one contain offensive jokes, be careful
+
 😂 _Humicroedit and FunLines datasets_
 
 Nabil Hossain, John Krumm and Michael Gamon. "President Vows to Cut ~~Taxes~~ Hair": Dataset and Analysis of Creative Text Editing for Humorous Headlines. 2019. In NAACL. 
@@ -42,3 +44,20 @@ __Download from__: https://github.com/orionw/RedditHumorDetection
 Use most recent 200K news titles
 https://www.kaggle.com/therohk/million-headlines
 
+# Contents of notebook datasets
+
+_BERT.ipynb_ contains a simlple working fine-tuning example
+
+_Dataset analysis and preparation.ipynb_ contains dataset description and data mixing explanations
+
+_dataset comparison and assemble.ipynb_ mixing data
+
+_Humicroedit.ipynb_ a closer look at Humicroedit dataset since it is an interesting one
+
+
+
+
+
+# Additional
+
+Followed this tutorial quite a bit https://medium.com/swlh/painless-fine-tuning-of-bert-in-pytorch-b91c14912caa
