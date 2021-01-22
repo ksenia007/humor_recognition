@@ -37,9 +37,7 @@ __Download from__: https://www.kaggle.com/abhinavmoudgil95/short-jokes
 __Download from__: https://github.com/orionw/RedditHumorDetection
 
 
-🤔 For balancing:
-
-_A Million News Headlines_
+🤔 For additional balancing: _A Million News Headlines_
 
 Use most recent 200K news titles
 https://www.kaggle.com/therohk/million-headlines
