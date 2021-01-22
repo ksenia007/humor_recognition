@@ -42,3 +42,7 @@ __Download from__: https://github.com/orionw/RedditHumorDetection
 Use most recent 200K news titles
 https://www.kaggle.com/therohk/million-headlines
 
+
+# Additional
+
+Followed this tutorial quite a bit https://medium.com/swlh/painless-fine-tuning-of-bert-in-pytorch-b91c14912caa
