@@ -44,6 +44,19 @@ __Download from__: https://github.com/orionw/RedditHumorDetection
 Use most recent 200K news titles
 https://www.kaggle.com/therohk/million-headlines
 
+# Contents of notebook datasets
+
+_BERT.ipynb_ contains a simlple working fine-tuning example
+
+_Dataset analysis and preparation.ipynb_ contains dataset description and data mixing explanations
+
+_dataset comparison and assemble.ipynb_ mixing data
+
+_Humicroedit.ipynb_ a closer look at Humicroedit dataset since it is an interesting one
+
+
+
+
 
 # Additional
 
