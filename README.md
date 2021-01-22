@@ -9,6 +9,8 @@ This is a repository for Princeton COS598C final project, Spring 2020, taught by
 
 ## Datasets:
 
+❗❗❗ All datasets except the first one contain offensive jokes, be careful
+
 😂 _Humicroedit and FunLines datasets_
 
 Nabil Hossain, John Krumm and Michael Gamon. "President Vows to Cut ~~Taxes~~ Hair": Dataset and Analysis of Creative Text Editing for Humorous Headlines. 2019. In NAACL. 
