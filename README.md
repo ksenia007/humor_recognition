@@ -60,6 +60,6 @@ _Humicroedit.ipynb_ a closer look at Humicroedit dataset since it is an interest
 
 
 
-# Additional
+# Note
 
-Followed this tutorial quite a bit https://medium.com/swlh/painless-fine-tuning-of-bert-in-pytorch-b91c14912caa
+Followed this tutorial for BERT finetuning https://medium.com/swlh/painless-fine-tuning-of-bert-in-pytorch-b91c14912caa
