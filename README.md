@@ -4,6 +4,8 @@ This is a repository for Princeton COS598C final project, Spring 2020, taught by
 
 👉 In short, the project explored the performance of frozen/unfrozen pre-trained `BERT-base-uncased` models on the joke recognition, and the effect dataset formation has on the performance. 
 
+🧠 Obtained a good performance for joke recognition. Observed that cleaner datasets give better results and adding lower weight to poor quality samples could be useful. Increasing the domain of training data results in better performance for some tasks. Selecting best combination of datasets based on frozen BERT with intent to be trained with unfrozen BERT would not work. 
+
 📜 See final report in the repo above
 
 
